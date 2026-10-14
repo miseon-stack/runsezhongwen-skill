@@ -1,4 +1,4 @@
-# Humanizer-zh：中文文本润色 Skill
+# runsezhongwen-skill：中文文本润色 Skill
 
 编辑已有文章、评论和文档中的空话、重复及模板化表达，保留事实、确定程度和作者声音。输入是一段文字或一个文件，默认输出最终改写稿；没有问题的句子可以不改。
 
@@ -8,58 +8,39 @@
 
 ## 安装
 
-### 方法一：通过 npx 一键安装（推荐）
+```bash
+npx skills add https://github.com/miseon-stack/runsezhongwen-skill.git
+```
+
+也可以克隆到本地技能目录。
+
+Codex：
 
 ```bash
-npx skills add https://github.com/op7418/Humanizer-zh.git
+git clone https://github.com/miseon-stack/runsezhongwen-skill.git ~/.codex/skills/runsezhongwen-skill
 ```
 
-这是最简单的安装方式，会自动将技能安装到正确的目录。
-
-### 方法二：通过 Git 克隆
+Claude Code：
 
 ```bash
-# 克隆到 Claude Code 的 skills 目录
-git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-zh
+git clone https://github.com/miseon-stack/runsezhongwen-skill.git ~/.claude/skills/runsezhongwen-skill
 ```
 
-### 方法三：手动安装
-
-1. 下载本项目的 ZIP 文件或克隆到本地
-2. 将 `Humanizer-zh` 文件夹复制到 Claude Code 的 skills 目录：
-   - **macOS/Linux**: `~/.claude/skills/`
-   - **Windows**: `%USERPROFILE%\.claude\skills\`
-
-3. 确保文件夹结构如下：
-   ```
-   ~/.claude/skills/humanizer-zh/
-   ├── SKILL.md       # 技能定义文件（中文版）
-   └── README.md      # 说明文档
-   ```
-
-### 验证安装
-
-重启 Claude Code 或重新加载 skills 后，在对话中输入：
-
-```
-/humanizer-zh
-```
-
-如果安装成功，该技能将被激活。
+安装后重新加载技能或开始新一轮对话，输入“请用 runsezhongwen-skill 润色下面的文章”。
 
 ## 使用
 
 粘贴文本：
 
 ```text
-请用 humanizer-zh 润色下面的文章，保留技术评论的语气：
+请用 runsezhongwen-skill 润色下面的文章，保留技术评论的语气：
 [原文]
 ```
 
 编辑文件：
 
 ```text
-请用 humanizer-zh 润色 article.md 中的正文。
+请用 runsezhongwen-skill 润色 article.md 中的正文。
 ```
 
 只审阅时说明“给出建议，不修改文件”。有作者样本时可一并提供，Skill 会借鉴表达习惯，但不会把样本中的经历、数据或观点搬入原文。
@@ -131,6 +112,8 @@ git clone https://github.com/op7418/Humanizer-zh.git ~/.claude/skills/humanizer-
 [测试说明](tests/README.md)包含 18 个短文本案例、一个 Markdown 文件样例和结构检查脚本。本次更新还做了旧版与修订版的长文对照，检查数字、条件、归因、作者态度和文件结构。单次、有限样例不能代表所有模型和文体；不能用字数下降或模型自评分证明效果。
 
 ## 来源与许可
+
+本项目由 [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) 改名而来。2026-10-14 修改技能名称、安装路径和使用说明，保留原有编辑规则、测试材料及 MIT 版权声明。上游修订与评测记录归原项目。
 
 - [blader/humanizer v3.0.0](https://github.com/blader/humanizer/blob/v3.0.0/SKILL.md)：原项目及 A–E 分类、声音校准、文件模式的来源。
 - [Humanizer-zh PR #39](https://github.com/op7418/Humanizer-zh/pull/39)：本次修订的结构基础与中文检查点来源。
